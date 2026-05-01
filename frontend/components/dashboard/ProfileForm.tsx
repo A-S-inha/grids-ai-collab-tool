@@ -90,7 +90,7 @@ export function ProfileForm() {
 
   return (
     <form onSubmit={handleSave} className="space-y-8">
-      <section className="rounded-2xl border border-sky-100 bg-sky-50/50 p-5 shadow-sm sm:p-6">
+      <section className="rounded-2xl border border-amber-100 bg-amber-50/50 p-5 shadow-sm sm:p-6">
         <h2 className="text-sm font-semibold text-slate-900">
           Calendar & blocked time
         </h2>
@@ -100,7 +100,7 @@ export function ProfileForm() {
         </p>
         <Link
           href="/dashboard/calendar"
-          className="mt-3 inline-flex text-sm font-semibold text-[#3B82F6] hover:underline"
+          className="mt-3 inline-flex text-sm font-semibold text-[#990000] hover:underline"
         >
           Manage calendar & availability →
         </Link>
@@ -121,7 +121,7 @@ export function ProfileForm() {
               value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder="Full name"
-              className="mt-1 w-full rounded-xl border border-slate-200 px-4 py-3 text-base text-slate-900 shadow-sm outline-none transition focus:border-[#3B82F6] focus:ring-2 focus:ring-[#3B82F6]/20"
+              className="mt-1 w-full rounded-xl border border-slate-200 px-4 py-3 text-base text-slate-900 shadow-sm outline-none transition focus:border-[#990000] focus:ring-2 focus:ring-[#990000]/20"
               autoComplete="name"
             />
           </label>
@@ -132,7 +132,7 @@ export function ProfileForm() {
               value={jobRole}
               onChange={(e) => setJobRole(e.target.value)}
               placeholder="e.g. Engineer, PM"
-              className="mt-1 w-full rounded-xl border border-slate-200 px-4 py-3 text-base text-slate-900 shadow-sm outline-none transition focus:border-[#3B82F6] focus:ring-2 focus:ring-[#3B82F6]/20"
+              className="mt-1 w-full rounded-xl border border-slate-200 px-4 py-3 text-base text-slate-900 shadow-sm outline-none transition focus:border-[#990000] focus:ring-2 focus:ring-[#990000]/20"
             />
           </label>
         </div>
@@ -152,7 +152,7 @@ export function ProfileForm() {
               key={s}
               type="button"
               onClick={() => addPresetSkill(s)}
-              className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-700 transition hover:border-[#3B82F6]/40 hover:bg-sky-50"
+              className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-700 transition hover:border-[#990000]/40 hover:bg-amber-50/80"
             >
               + {s}
             </button>
@@ -162,13 +162,13 @@ export function ProfileForm() {
           {skills.map((skill, i) => (
             <span
               key={`${skill}-${i}`}
-              className="inline-flex items-center gap-1 rounded-full bg-sky-50 px-3 py-1 text-sm font-medium text-sky-900 ring-1 ring-sky-100"
+              className="inline-flex items-center gap-1 rounded-full bg-amber-50 px-3 py-1 text-sm font-medium text-amber-950 ring-1 ring-amber-100"
             >
               {skill}
               <button
                 type="button"
                 onClick={() => removeSkill(i)}
-                className="ml-0.5 rounded-full p-0.5 text-sky-600 transition hover:bg-sky-200/60 hover:text-sky-900"
+                className="ml-0.5 rounded-full p-0.5 text-amber-800 transition hover:bg-amber-200/60 hover:text-amber-950"
                 aria-label={`Remove ${skill}`}
               >
                 <X className="h-3.5 w-3.5" strokeWidth={2.5} />
@@ -188,7 +188,7 @@ export function ProfileForm() {
               }
             }}
             placeholder="Add custom skill"
-            className="min-w-0 flex-1 rounded-xl border border-slate-200 px-4 py-2.5 text-sm text-slate-900 shadow-sm outline-none focus:border-[#3B82F6] focus:ring-2 focus:ring-[#3B82F6]/20"
+            className="min-w-0 flex-1 rounded-xl border border-slate-200 px-4 py-2.5 text-sm text-slate-900 shadow-sm outline-none focus:border-[#990000] focus:ring-2 focus:ring-[#990000]/20"
           />
           <button
             type="button"
@@ -235,7 +235,7 @@ export function ProfileForm() {
               onClick={() => toggleWorkDay(d.id)}
               className={`rounded-xl px-3 py-2 text-sm font-semibold transition ${
                 workDays.includes(d.id)
-                  ? "bg-[#3B82F6] text-white shadow-sm"
+                  ? "bg-[#990000] text-white shadow-sm"
                   : "bg-slate-100 text-slate-500 hover:bg-slate-200"
               }`}
             >
@@ -281,7 +281,7 @@ export function ProfileForm() {
       <div className="flex flex-wrap items-center gap-3">
         <button
           type="submit"
-          className="rounded-xl bg-[#3B82F6] px-6 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-600"
+          className="rounded-xl bg-[#990000] px-6 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-[#7a0000]"
         >
           Save changes
         </button>

@@ -10,7 +10,7 @@ export function TopNav() {
   return (
     <header className="flex h-16 shrink-0 items-center justify-between gap-3 border-b border-slate-200/80 bg-white px-4 sm:px-6">
       <Link href="/dashboard" className="flex min-w-0 items-center gap-3">
-        <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#3B82F6] text-sm font-bold text-white">
+        <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#990000] text-sm font-bold text-white">
           AI
         </div>
         <span className="truncate text-lg font-semibold tracking-tight text-slate-900">
@@ -63,7 +63,7 @@ export function TopNav() {
           className="ml-0.5 flex h-10 w-10 items-center justify-center overflow-hidden rounded-full ring-2 ring-slate-200 transition hover:ring-slate-300 sm:ml-1"
           aria-label="Profile"
         >
-          <span className="flex h-full w-full items-center justify-center bg-gradient-to-br from-violet-400 to-indigo-500 text-sm font-medium text-white">
+          <span className="flex h-full w-full items-center justify-center bg-gradient-to-br from-[#FFC72C] to-[#990000] text-sm font-medium text-white">
             A
           </span>
         </Link>

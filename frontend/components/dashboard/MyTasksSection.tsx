@@ -20,7 +20,7 @@ export function MyTasksSection() {
         <h2 className="text-lg font-semibold text-slate-900">My Tasks</h2>
         <a
           href="#"
-          className="text-sm font-medium text-[#3B82F6] hover:underline"
+          className="text-sm font-medium text-[#990000] hover:underline"
         >
           View All &gt;
         </a>

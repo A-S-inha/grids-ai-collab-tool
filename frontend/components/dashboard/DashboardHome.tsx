@@ -54,7 +54,7 @@ export function DashboardHome() {
     return (
       <div className="space-y-8">
         <div>
-          <p className="text-xs font-semibold uppercase tracking-wide text-[#3B82F6]">
+          <p className="text-xs font-semibold uppercase tracking-wide text-[#990000]">
             Project lead
           </p>
           <h1 className="mt-1 text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
@@ -66,7 +66,7 @@ export function DashboardHome() {
           <div className="mt-6 flex flex-wrap gap-3">
             <Link
               href="/dashboard/projects/ai-colab-tool"
-              className="inline-flex items-center gap-2 rounded-xl bg-[#3B82F6] px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-600"
+              className="inline-flex items-center gap-2 rounded-xl bg-[#990000] px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-[#7a0000]"
             >
               <Sparkles className="h-4 w-4" strokeWidth={1.75} />
               Run assignment (demo)
@@ -161,25 +161,25 @@ export function DashboardHome() {
   return (
     <div className="space-y-8">
       <div>
-        <p className="text-xs font-semibold uppercase tracking-wide text-sky-600">
+        <p className="text-xs font-semibold uppercase tracking-wide text-amber-800">
           Team member
         </p>
         <h1 className="mt-1 text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
-          Welcome back, <span className="text-[#3B82F6]">Ayesha</span>
+          Welcome back, <span className="text-[#990000]">Ayesha</span>
         </h1>
         <p className="mt-1 text-slate-600">
           Accept or decline assignments, keep your calendar and skills up to
           date.
         </p>
-        <div className="mt-4 rounded-xl border border-sky-100 bg-sky-50/80 px-4 py-3 text-sm text-sky-950">
+        <div className="mt-4 rounded-xl border border-amber-100 bg-amber-50/80 px-4 py-3 text-sm text-amber-950">
           <p className="font-medium">Better AI matching</p>
-          <p className="mt-0.5 text-sky-900/80">
+          <p className="mt-0.5 text-amber-900/80">
             Connect Google Calendar (read-only) and add blocked dates so leads
             don&apos;t assign work when you&apos;re unavailable.
           </p>
           <Link
             href="/dashboard/calendar"
-            className="mt-2 inline-block text-sm font-semibold text-[#3B82F6] hover:underline"
+            className="mt-2 inline-block text-sm font-semibold text-[#990000] hover:underline"
           >
             Open calendar & availability →
           </Link>
@@ -187,7 +187,7 @@ export function DashboardHome() {
         <div className="mt-6 flex flex-wrap gap-3">
           <Link
             href="/dashboard/tasks"
-            className="inline-flex items-center gap-2 rounded-xl bg-[#3B82F6] px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-600"
+            className="inline-flex items-center gap-2 rounded-xl bg-[#990000] px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-[#7a0000]"
           >
             <CheckCircle2 className="h-4 w-4" strokeWidth={1.75} />
             Review pending tasks

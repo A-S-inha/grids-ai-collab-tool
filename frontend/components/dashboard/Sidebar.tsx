@@ -38,7 +38,7 @@ export function Sidebar() {
   const { role, setRole } = useDashboardRole();
 
   return (
-    <aside className="flex min-h-0 w-56 shrink-0 flex-col border-r border-slate-200/60 bg-[#EFF6FF] py-6">
+    <aside className="flex min-h-0 w-56 shrink-0 flex-col border-r border-slate-200/60 bg-[#FFF5F5] py-6">
       <nav className="flex flex-col gap-1 px-3">
         {nav.map((item) => {
           const Icon = item.icon;
@@ -49,7 +49,7 @@ export function Sidebar() {
               href={item.href}
               className={`flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition ${
                 active
-                  ? "bg-[#3B82F6] text-white shadow-sm"
+                  ? "bg-[#990000] text-white shadow-sm"
                   : "text-slate-700 hover:bg-white/60"
               }`}
             >
@@ -79,7 +79,7 @@ export function Sidebar() {
             type="button"
             onClick={() => setRole("lead")}
             className={`flex-1 rounded-md py-1.5 text-[11px] font-semibold ${
-              role === "lead" ? "bg-[#3B82F6] text-white" : "text-slate-600"
+              role === "lead" ? "bg-[#990000] text-white" : "text-slate-600"
             }`}
           >
             Lead
@@ -88,7 +88,7 @@ export function Sidebar() {
             type="button"
             onClick={() => setRole("member")}
             className={`flex-1 rounded-md py-1.5 text-[11px] font-semibold ${
-              role === "member" ? "bg-[#3B82F6] text-white" : "text-slate-600"
+              role === "member" ? "bg-[#990000] text-white" : "text-slate-600"
             }`}
           >
             Member

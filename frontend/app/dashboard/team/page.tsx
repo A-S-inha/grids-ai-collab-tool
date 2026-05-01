@@ -13,7 +13,7 @@ const members = [
     role: "Project Manager",
     email: "sarah@example.com",
     initials: "SM",
-    gradient: "from-rose-400 to-orange-400",
+    gradient: "from-[#FFC72C] to-[#f59e0b]",
     status: "online" as const,
     calendar: true,
   },
@@ -22,7 +22,7 @@ const members = [
     role: "Engineer",
     email: "ahmed@example.com",
     initials: "AK",
-    gradient: "from-cyan-400 to-blue-500",
+    gradient: "from-[#dc2626] to-[#7f1d1d]",
     status: "away" as const,
     calendar: true,
   },
@@ -31,7 +31,7 @@ const members = [
     role: "Designer",
     email: "john@example.com",
     initials: "JL",
-    gradient: "from-violet-400 to-purple-500",
+    gradient: "from-[#fca5a5] to-[#991b1b]",
     status: "online" as const,
     calendar: false,
   },
@@ -40,7 +40,7 @@ const members = [
     role: "Lead · AI Colab Tool",
     email: "ayesha@example.com",
     initials: "A",
-    gradient: "from-indigo-400 to-fuchsia-500",
+    gradient: "from-[#fde047] to-[#b45309]",
     status: "online" as const,
     highlight: true,
     calendar: true,
@@ -87,7 +87,7 @@ export default function TeamPage() {
         action={
           <button
             type="button"
-            className="inline-flex items-center gap-2 rounded-xl bg-[#3B82F6] px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-600"
+            className="inline-flex items-center gap-2 rounded-xl bg-[#990000] px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-[#7a0000]"
           >
             <UserPlus className="h-4 w-4" strokeWidth={1.75} />
             Invite
@@ -138,7 +138,7 @@ export default function TeamPage() {
               <li
                 key={m.email}
                 className={`flex flex-wrap items-center gap-4 px-5 py-4 ${
-                  "highlight" in m && m.highlight ? "bg-sky-50/50" : ""
+                  "highlight" in m && m.highlight ? "bg-amber-50/50" : ""
                 }`}
               >
                 <div className="relative">
@@ -170,7 +170,7 @@ export default function TeamPage() {
                 </span>
                 <a
                   href={`mailto:${m.email}`}
-                  className="inline-flex items-center gap-1.5 text-sm font-medium text-[#3B82F6] hover:underline"
+                  className="inline-flex items-center gap-1.5 text-sm font-medium text-[#990000] hover:underline"
                 >
                   <Mail className="h-4 w-4" strokeWidth={1.75} />
                   Message
@@ -190,7 +190,7 @@ export default function TeamPage() {
 
       <p className="mt-4 text-center text-xs text-slate-500">
         Your calendar status refreshes when you return to this tab.{" "}
-        <Link href="/dashboard/calendar" className="text-[#3B82F6] hover:underline">
+        <Link href="/dashboard/calendar" className="text-[#990000] hover:underline">
           Calendar settings
         </Link>
       </p>

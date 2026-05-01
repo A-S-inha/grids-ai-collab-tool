@@ -59,7 +59,7 @@ export function SettingsIntegrations() {
             </span>
             <Link
               href="/dashboard/calendar"
-              className="inline-flex items-center gap-1 rounded-xl border border-slate-200 px-3 py-1.5 text-sm font-semibold text-[#3B82F6] hover:bg-slate-50"
+              className="inline-flex items-center gap-1 rounded-xl border border-slate-200 px-3 py-1.5 text-sm font-semibold text-[#990000] hover:bg-slate-50"
             >
               <Link2 className="h-4 w-4" strokeWidth={1.75} />
               Manage

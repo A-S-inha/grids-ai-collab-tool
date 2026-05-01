@@ -4,7 +4,6 @@ import {
   createContext,
   useCallback,
   useContext,
-  useEffect,
   useState,
   type ReactNode,
 } from "react";
@@ -21,16 +20,16 @@ type Ctx = {
 const DashboardRoleContext = createContext<Ctx | null>(null);
 
 export function DashboardRoleProvider({ children }: { children: ReactNode }) {
-  const [role, setRoleState] = useState<DashboardRole>("lead");
-
-  useEffect(() => {
+  const [role, setRoleState] = useState<DashboardRole>(() => {
+    if (typeof window === "undefined") return "lead";
     try {
       const v = localStorage.getItem(STORAGE_KEY);
-      if (v === "member" || v === "lead") setRoleState(v);
+      if (v === "member" || v === "lead") return v;
     } catch {
       /* ignore */
     }
-  }, []);
+    return "lead";
+  });
 
   const setRole = useCallback((r: DashboardRole) => {
     setRoleState(r);

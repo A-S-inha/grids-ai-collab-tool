@@ -23,7 +23,7 @@ function ToggleRow({
         role="switch"
         aria-checked={defaultOn ?? false}
         className={`relative h-7 w-12 shrink-0 rounded-full transition ${
-          defaultOn ? "bg-[#3B82F6]" : "bg-slate-200"
+          defaultOn ? "bg-[#990000]" : "bg-slate-200"
         }`}
       >
         <span
@@ -71,7 +71,7 @@ export default function SettingsPage() {
           </p>
           <Link
             href="/dashboard/profile"
-            className="mt-4 inline-flex rounded-xl bg-[#3B82F6] px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-600"
+            className="mt-4 inline-flex rounded-xl bg-[#990000] px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-[#7a0000]"
           >
             Open profile
           </Link>

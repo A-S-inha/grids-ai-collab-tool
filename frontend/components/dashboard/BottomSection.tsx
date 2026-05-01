@@ -11,8 +11,8 @@ import {
 function RoleBadge({ role }: { role: "Lead" | "Member" }) {
   const styles =
     role === "Lead"
-      ? "bg-blue-100 text-blue-700"
-      : "bg-sky-100 text-sky-700";
+      ? "bg-red-100 text-red-800"
+      : "bg-amber-100 text-amber-800";
   return (
     <span
       className={`rounded-lg px-2 py-0.5 text-xs font-semibold ${styles}`}
@@ -106,7 +106,7 @@ export function BottomSection() {
                 </span>
                 <span>{p.tasks} Tasks</span>
                 <span className="flex items-center gap-1 text-slate-700">
-                  <RefreshCw className="h-4 w-4 text-[#3B82F6]" />
+                  <RefreshCw className="h-4 w-4 text-[#990000]" />
                   {p.due}
                 </span>
               </div>
@@ -121,7 +121,7 @@ export function BottomSection() {
         </h2>
         <ul className="space-y-5">
           <li className="flex gap-3">
-            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-blue-100 text-blue-600">
+            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-red-100 text-red-800">
               <Mail className="h-5 w-5" strokeWidth={1.75} />
             </span>
             <div>
@@ -154,7 +154,7 @@ export function BottomSection() {
             </div>
           </li>
           <li className="flex gap-3">
-            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-indigo-100 text-indigo-600">
+            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-amber-100 text-amber-800">
               <Bot className="h-5 w-5" strokeWidth={1.75} />
             </span>
             <div>

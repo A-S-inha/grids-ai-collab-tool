@@ -105,7 +105,7 @@ function AssignmentBadge({ status }: { status: AssignmentStatus }) {
       label: "Awaiting your accept",
     },
     assigned: {
-      className: "bg-violet-50 text-violet-900 ring-violet-100",
+      className: "bg-red-50 text-red-950 ring-red-100",
       label: "Assigned",
     },
     accepted: {
@@ -121,7 +121,7 @@ function AssignmentBadge({ status }: { status: AssignmentStatus }) {
       label: "Synced → GitHub",
     },
     in_progress: {
-      className: "bg-sky-50 text-sky-900 ring-sky-100",
+      className: "bg-amber-50 text-amber-950 ring-amber-100",
       label: "In progress",
     },
     overdue: {
@@ -148,7 +148,7 @@ function RowIcon({ status }: { status: AssignmentStatus }) {
     return <CheckCircle2 className="h-5 w-5 text-emerald-500" strokeWidth={1.75} />;
   if (status === "declined")
     return <XCircle className="h-5 w-5 text-red-500" strokeWidth={1.75} />;
-  return <GitBranch className="h-5 w-5 text-sky-500" strokeWidth={1.75} />;
+  return <GitBranch className="h-5 w-5 text-amber-700" strokeWidth={1.75} />;
 }
 
 export default function MyTasksPage() {
@@ -200,7 +200,7 @@ export default function MyTasksPage() {
             onClick={() => setFilterId(f.id)}
             className={`rounded-full px-4 py-1.5 text-sm font-medium transition ${
               filterId === f.id
-                ? "bg-[#3B82F6] text-white shadow-sm"
+                ? "bg-[#990000] text-white shadow-sm"
                 : "bg-white text-slate-600 ring-1 ring-slate-200 hover:bg-slate-50"
             }`}
           >
@@ -272,7 +272,7 @@ export default function MyTasksPage() {
               onChange={(e) => setDeclineReason(e.target.value)}
               placeholder="Reason (optional)"
               rows={3}
-              className="mt-4 w-full rounded-xl border border-slate-200 px-3 py-2 text-sm text-slate-900 shadow-sm outline-none focus:border-[#3B82F6] focus:ring-2 focus:ring-[#3B82F6]/20"
+              className="mt-4 w-full rounded-xl border border-slate-200 px-3 py-2 text-sm text-slate-900 shadow-sm outline-none focus:border-[#990000] focus:ring-2 focus:ring-[#990000]/20"
             />
             <div className="mt-4 flex justify-end gap-2">
               <button

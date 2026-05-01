@@ -38,7 +38,7 @@ export const demoProjects: DemoProject[] = [
     role: "Lead",
     members: 8,
     due: "May 15",
-    color: "from-violet-500 to-indigo-600",
+    color: "from-[#FFC72C] to-[#990000]",
     tasks: [
       {
         id: "t1",
@@ -81,7 +81,7 @@ export const demoProjects: DemoProject[] = [
     role: "Member",
     members: 4,
     due: "Jun 2",
-    color: "from-sky-500 to-cyan-600",
+    color: "from-[#b91c1c] to-[#7f1d1d]",
     tasks: [
       {
         id: "t4",
@@ -102,7 +102,7 @@ export const demoProjects: DemoProject[] = [
     role: "Lead",
     members: 6,
     due: "Apr 30",
-    color: "from-emerald-500 to-teal-600",
+    color: "from-[#ea580c] to-[#991b1b]",
     tasks: [
       {
         id: "t5",
@@ -123,7 +123,7 @@ export const demoProjects: DemoProject[] = [
     role: "Member",
     members: 11,
     due: "Jul 1",
-    color: "from-orange-500 to-rose-600",
+    color: "from-[#fbbf24] to-[#7f1d1d]",
     tasks: [
       {
         id: "t6",

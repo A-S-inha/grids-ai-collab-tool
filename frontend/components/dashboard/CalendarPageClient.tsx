@@ -11,7 +11,7 @@ import {
   Video,
 } from "lucide-react";
 import Link from "next/link";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 import { PageHeader } from "@/components/dashboard/PageHeader";
 import { useDashboardRole } from "@/components/dashboard/DashboardRoleContext";
 
@@ -70,8 +70,27 @@ const mockCalendars = [
 
 export function CalendarPageClient() {
   const { role } = useDashboardRole();
-  const [googleConnected, setGoogleConnected] = useState(false);
-  const [selectedCals, setSelectedCals] = useState<string[]>(["primary", "work"]);
+  const [googleConnected, setGoogleConnected] = useState(() => {
+    if (typeof window === "undefined") return false;
+    try {
+      return localStorage.getItem(LS_GOOGLE) === "1";
+    } catch {
+      return false;
+    }
+  });
+  const [selectedCals, setSelectedCals] = useState<string[]>(() => {
+    if (typeof window === "undefined") return ["primary", "work"];
+    try {
+      const raw = localStorage.getItem(LS_CALS);
+      if (raw) {
+        const parsed = JSON.parse(raw) as string[];
+        if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+      }
+    } catch {
+      /* ignore */
+    }
+    return ["primary", "work"];
+  });
   const [blocked, setBlocked] = useState<BlockedRange[]>(defaultBlocked);
   const [blockStart, setBlockStart] = useState("");
   const [blockEnd, setBlockEnd] = useState("");
@@ -82,19 +101,6 @@ export function CalendarPageClient() {
     { label: string; detail: string }[] | null
   >(null);
   const [copied, setCopied] = useState(false);
-
-  useEffect(() => {
-    try {
-      setGoogleConnected(localStorage.getItem(LS_GOOGLE) === "1");
-      const raw = localStorage.getItem(LS_CALS);
-      if (raw) {
-        const parsed = JSON.parse(raw) as string[];
-        if (Array.isArray(parsed)) setSelectedCals(parsed);
-      }
-    } catch {
-      /* ignore */
-    }
-  }, []);
 
   const persistCals = useCallback((ids: string[]) => {
     setSelectedCals(ids);
@@ -223,7 +229,7 @@ export function CalendarPageClient() {
               <button
                 type="button"
                 onClick={connectGoogle}
-                className="inline-flex items-center gap-2 rounded-xl bg-[#3B82F6] px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-600"
+                className="inline-flex items-center gap-2 rounded-xl bg-[#990000] px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-[#7a0000]"
               >
                 <Link2 className="h-4 w-4" strokeWidth={1.75} />
                 Connect Google Calendar
@@ -250,7 +256,7 @@ export function CalendarPageClient() {
                           persistCals(selectedCals.filter((x) => x !== c.id));
                         }
                       }}
-                      className="h-4 w-4 rounded border-slate-300 text-[#3B82F6]"
+                      className="h-4 w-4 rounded border-slate-300 text-[#990000]"
                     />
                     <label
                       htmlFor={`cal-${c.id}`}
@@ -337,7 +343,7 @@ export function CalendarPageClient() {
           </div>
           <p className="mt-3 text-xs text-slate-500">
             Working hours and task cap live on{" "}
-            <Link href="/dashboard/profile" className="font-medium text-[#3B82F6] hover:underline">
+            <Link href="/dashboard/profile" className="font-medium text-[#990000] hover:underline">
               Profile
             </Link>
             .
@@ -345,13 +351,13 @@ export function CalendarPageClient() {
         </section>
 
         {role === "lead" ? (
-          <section className="rounded-2xl border border-indigo-100 bg-indigo-50/40 p-5 shadow-sm sm:p-6">
+          <section className="rounded-2xl border border-red-100 bg-red-50/40 p-5 shadow-sm sm:p-6">
             <div className="flex flex-wrap items-center gap-2">
-              <CalIcon className="h-5 w-5 text-indigo-600" strokeWidth={1.75} />
+              <CalIcon className="h-5 w-5 text-red-800" strokeWidth={1.75} />
               <h2 className="text-lg font-semibold text-slate-900">
                 Meeting suggestions (MVP)
               </h2>
-              <span className="rounded-full bg-white px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-indigo-700 ring-1 ring-indigo-100">
+              <span className="rounded-full bg-white px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-red-800 ring-1 ring-red-100">
                 Suggest only
               </span>
             </div>
@@ -388,7 +394,7 @@ export function CalendarPageClient() {
                 <button
                   type="button"
                   onClick={runMeetingSuggest}
-                  className="rounded-xl bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-700"
+                  className="rounded-xl bg-[#990000] px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-[#7a0000]"
                 >
                   Suggest slots (demo)
                 </button>
@@ -449,19 +455,19 @@ export function CalendarPageClient() {
                   <span
                     className={`inline-flex h-7 w-7 items-center justify-center rounded-full text-sm font-medium ${
                       highlight
-                        ? "bg-[#3B82F6] text-white"
+                        ? "bg-[#990000] text-white"
                         : "text-slate-700"
                     }`}
                   >
                     {n}
                   </span>
                   {n === 9 ? (
-                    <p className="mt-2 truncate rounded-lg bg-sky-50 px-1.5 py-1 text-[10px] font-medium text-sky-900 ring-1 ring-sky-100">
+                    <p className="mt-2 truncate rounded-lg bg-amber-50 px-1.5 py-1 text-[10px] font-medium text-amber-950 ring-1 ring-amber-100">
                       10:00 Design sync
                     </p>
                   ) : null}
                   {n === 10 ? (
-                    <p className="mt-2 truncate rounded-lg bg-violet-50 px-1.5 py-1 text-[10px] font-medium text-violet-900 ring-1 ring-violet-100">
+                    <p className="mt-2 truncate rounded-lg bg-red-50 px-1.5 py-1 text-[10px] font-medium text-red-950 ring-1 ring-red-100">
                       2:00 Sprint planning
                     </p>
                   ) : null}
@@ -479,7 +485,7 @@ export function CalendarPageClient() {
                 <span
                   className={`mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-xl ${
                     e.type === "meet"
-                      ? "bg-[#3B82F6]/10 text-[#3B82F6]"
+                      ? "bg-[#990000]/10 text-[#990000]"
                       : "bg-slate-100 text-slate-600"
                   }`}
                 >
